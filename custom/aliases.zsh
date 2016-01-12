@@ -1,6 +1,6 @@
 
 alias zshconfig="subl ~/.zshrc"
-alias ohmyzsh="subl ~/.oh-my-zsh"
+alias ohmyzsh="subl ~/.oh-my-zsh.sh"
 
 alias maek='make'
 alias reste='reset'
