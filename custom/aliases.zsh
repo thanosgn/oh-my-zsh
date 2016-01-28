@@ -3,6 +3,7 @@ alias zshconfig="subl ~/.zshrc"
 alias ohmyzsh="subl ~/.oh-my-zsh.sh"
 
 alias maek='make'
+alias mkae='make'
 alias reste='reset'
 alias re-make='reset && make'
 #bash only---
