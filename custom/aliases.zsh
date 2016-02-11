@@ -14,7 +14,7 @@ alias dit='cd /home/thanos/Dropbox/Private/DIT/'
 alias localhost='cd /usr/share/nginx/html/'
 alias bashconfig='sudo subl /home/thanos/.bashrc'
 
-alias ll='ls -la'
+alias ll='ls -lhA'
 
 alias ..='cd ..'
 alias ...='cd ../../'
