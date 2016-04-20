@@ -16,12 +16,23 @@ alias bashconfig='sudo subl /home/thanos/.bashrc'
 
 alias ll='ls -lhA'
 
+alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
+
+function cdl () {
+    cd $1
+    ll
+}
+
+alias mkdir='mkdir -pv'
+
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
 alias back='cd -'
 alias pdf='evince'
@@ -41,6 +52,10 @@ alias aliases='subl ~/.oh-my-zsh/custom/aliases.zsh'
 alias graph='~/repositories/png-graph-generator/graph.sh'
 
 alias gitlg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+alias tomorrow="cat ~/Dropbox/Private/DIT/πρόγραμμα_εαρινό.txt  | grep `date --date="tomorrow" +%A`"
+alias today="cat ~/Dropbox/Private/DIT/πρόγραμμα_εαρινό.txt  | grep `date  +%A`"
+alias cspass="cat /home/thanos/Dropbox/Private/DIT/8o_examhno/Computer_Security/CSpass.txt"
 
 #Extract almost any archive
 extract () {
