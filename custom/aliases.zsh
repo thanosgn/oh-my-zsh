@@ -35,7 +35,7 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 alias back='cd -'
-alias pdf='evince'
+# alias pdf='evince'	
 
 # update on one command
 alias update='sudo apt-get update' 
@@ -77,4 +77,8 @@ extract () {
      else
          echo "'$1' is not a valid file"
      fi
+}
+
+pdf () {
+	evince $1 &
 }
