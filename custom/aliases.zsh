@@ -31,6 +31,7 @@ function cdl () {
 
 alias mkdir='mkdir -pv'
 
+
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
@@ -55,8 +56,6 @@ alias gitlg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Crese
 
 alias tomorrow="cat ~/Dropbox/Private/DIT/πρόγραμμα_εαρινό.txt  | grep `date --date="tomorrow" +%A`"
 alias today="cat ~/Dropbox/Private/DIT/πρόγραμμα_εαρινό.txt  | grep `date  +%A`"
-alias cspass="cat /home/thanos/Dropbox/Private/DIT/8o_examhno/Computer_Security/CSpass.txt"
-
 #Extract almost any archive
 extract () {
     if [ -f $1 ] ; then
@@ -78,6 +77,8 @@ extract () {
          echo "'$1' is not a valid file"
      fi
 }
+
+alias ccat='source-highlight --out-format=esc -o STDOUT -i'  
 
 pdf () {
 	evince $1 &
