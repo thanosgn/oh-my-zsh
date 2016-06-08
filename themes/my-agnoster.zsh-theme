@@ -64,9 +64,6 @@ prompt_segment() {
 }
 
 # End the prompt, closing any open segments
-function get_pwd() {
-  echo "${PWD/$HOME/~}"
-}
 _newline=$'\n'
 _lineup=$'\e[1A'
 _linedown=$'\e[1B'
