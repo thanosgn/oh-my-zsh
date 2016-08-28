@@ -83,3 +83,7 @@ alias ccat='source-highlight --out-format=esc -o STDOUT -i'
 pdf () {
 	evince $1 &
 }
+
+alias hide="export DEFAULT_USER='thanos'"
+alias unhide="export DEFAULT_USER=''"
+alias sz="source ~/.zshrc"
