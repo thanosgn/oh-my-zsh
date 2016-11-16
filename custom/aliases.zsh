@@ -54,8 +54,8 @@ alias graph='~/repositories/png-graph-generator/graph.sh'
 
 alias gitlg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 
-alias tomorrow="cat ~/Dropbox/Private/DIT/πρόγραμμα_εαρινό.txt  | grep `date --date="tomorrow" +%A`"
-alias today="cat ~/Dropbox/Private/DIT/πρόγραμμα_εαρινό.txt  | grep `date  +%A`"
+alias tomorrow="cat ~/Dropbox/Private/DIT/schedule.txt  | grep `date --date="tomorrow" +%A`"
+alias today="cat ~/Dropbox/Private/DIT/schedule.txt  | grep `date  +%A`"
 #Extract almost any archive
 extract () {
     if [ -f $1 ] ; then
