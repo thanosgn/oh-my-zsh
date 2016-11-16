@@ -68,51 +68,17 @@ _newline=$'\n'
 _lineup=$'\e[1A'
 _linedown=$'\e[1B'
 
-function battery_charge {
-  b_now=$(cat /sys/class/power_supply/BAT1/energy_now)
-  b_full=$(cat /sys/class/power_supply/BAT1/energy_full)
-  b_status=$(cat /sys/class/power_supply/BAT1/status)
-  # I am displaying 10 chars -> charge is in {0..9}
-  charge=$(expr $(expr $b_now \* 10) / $b_full)
-
-  # choose the color according the charge or if we are charging then always green
-  if [[ charge -gt 5 || "Charging" == $b_status ]]; then
-    echo -n "%{$fg[green]%}"
-  elif [[ charge -gt 2 ]]; then
-    echo -n "%{$fg[yellow]%}"
-  else
-    echo -n "%{$fg[red]%}"
-  fi
-
-  # display charge * '▸' and (10 - charge) * '▹'
-  i=0;
-  while [[ i -lt $charge ]]
-  do
-    i=$(expr $i + 1)
-    echo -n "▸"
-  done
-  while [[ i -lt 10 ]]
-  do
-    i=$(expr $i + 1)
-    echo -n "▹"
-  done
-
-  # display a plus if we are charging
-  if [[ "Charging" == $b_status ]]; then
-    echo -n "%{$fg_bold[green]%} +"
-  fi
-  # and reset the color
-  echo -n "%{$reset_color%} "
-}
 
 prompt_end() {
   if [[ -n $CURRENT_BG ]]; then
     echo -n " %{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+    # echo -n " %{%k%F{$CURRENT_BG}%}"
   else
     echo -n "%{%k%}"
   fi
-  echo -n "%{%f%}
-%{%F{blue}%}❯%{%f%}"
+  # echo -n "%{%f%}"
+  # echo -n "%{%f%}$_newline%{%F{blue}%}❯%{%f%}"
+  echo "%{%f%} ⌚ %{$fg_bold[red]%}%*%{$reset_color%}$_newline%{%F{blue}%}❯%{%f%}"
 # %{%F{blue}%}➜%{%f%}"
 # %{%F{blue}%}█$SEGMENT_SEPARATOR%{%f%}"
 # %{%F{blue}%}➭%{%f%}"
@@ -121,10 +87,6 @@ prompt_end() {
 # %{%F{blue}%}→$reset_color"
   CURRENT_BG=''
 }
-RPROMPT="%{${_lineup}%} $(battery_charge)%F{${1:-blue}}% [%F{${1:-green}}% %*%F{${1:-blue}}]%{${_linedown}%}"
-# setopt promptsubst
-# RPROMPT='$(acpi | grep -o "[0-9]*%)% '
-
 ### Prompt components
 # Each component will draw itself, and hide itself if no information needs to be shown
 
@@ -254,3 +216,9 @@ build_prompt() {
   prompt_end
 }
 PROMPT='%{%f%b%k%}$(build_prompt) '
+
+small_prompt() {
+	prompt_status
+  echo "%{%f%}%{%F{blue}%}❯%{%f%}"
+}
+export SROMPT='%{%f%b%k%}$(small_prompt) '
