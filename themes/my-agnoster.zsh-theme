@@ -219,6 +219,13 @@ PROMPT='%{%f%b%k%}$(build_prompt) '
 
 small_prompt() {
 	prompt_status
-  echo "%{%f%}%{%F{blue}%}❯%{%f%}"
+  echo "%{%f%}%F{blue}%}❯%{$fg_bold[blue]%} (%c)%{%f%}%{$reset_color%}"
+}
+
+tiny_prompt() {
+  prompt_status
+  echo "%{%f%}%F{blue}%}❯%{$fg_bold[blue]%}%{%f%}%{$reset_color%}"
 }
 export SROMPT='%{%f%b%k%}$(small_prompt) '
+export TROMPT='%{%f%b%k%}$(tiny_prompt) '
+export FROMPT=$PROMPT

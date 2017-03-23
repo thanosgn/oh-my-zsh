@@ -29,7 +29,11 @@ function cdl () {
     ll
 }
 
-alias mkdir='mkdir -pv'
+# alias mkdir='mkdir -pv'
+
+mkdir() {
+	/bin/mkdir -pv $1 && cd $1
+}
 
 
 alias egrep='egrep --color=auto'
